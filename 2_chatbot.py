@@ -117,10 +117,10 @@ KB = {
 
 
 # %%
-print("Mission:", KB["exact_total"]["name"])
-print("Example:", KB["exact_total"]["example"])
-print("Success:", KB["exact_total"]["success"])
-print("Scoring:", KB["exact_total"]["scoring"])
+# print("Mission:", KB["exact_total"]["name"])
+# print("Example:", KB["exact_total"]["example"])
+# print("Success:", KB["exact_total"]["success"])
+# print("Scoring:", KB["exact_total"]["scoring"])
 
 
 # %% [markdown]
@@ -183,10 +183,10 @@ patterns = {
 
 
 # %%
-for intent in patterns:
-    print("Intent:", intent)
-    print("Patterns:", patterns[intent])
-    print()
+# for intent in patterns:
+#     print("Intent:", intent)
+#     print("Patterns:", patterns[intent])
+#     print()
 
 
 # %% [markdown]
@@ -242,18 +242,18 @@ def normalize(text):
 
 
 # %%
-test_inputs = [
-    "REACH the exit with EXACTLY 12 points!",
-    "Get to the exit   in as few steps as possible.",
-    "Collect as many ONES as possible!",
-    "Reach the exit with exactly -5 points.",
-    "Reach the exit with exactly 2.5 points."
-]
-
-for text in test_inputs:
-    print("Original:", text)
-    print("Processed:", normalize(text))
-    print()
+# test_inputs = [
+#     "REACH the exit with EXACTLY 12 points!",
+#     "Get to the exit   in as few steps as possible.",
+#     "Collect as many ONES as possible!",
+#     "Reach the exit with exactly -5 points.",
+#     "Reach the exit with exactly 2.5 points."
+# ]
+#
+# for text in test_inputs:
+#     print("Original:", text)
+#     print("Processed:", normalize(text))
+#     print()
 
 
 # %% [markdown]
@@ -318,22 +318,22 @@ def calculate_scores(text):
 
 
 # %%
-test_commands = [
-    "Reach the exit with exactly 12 points.",
-    "Get to the exit in as few steps as possible.",
-    "Collect as many ones as possible."
-]
-
-for command in test_commands:
-
-    print("Command:", command)
-
-    scores = calculate_scores(command)
-
-    for intent in scores:
-        print(intent, ":", scores[intent])
-
-    print()
+# test_commands = [
+#     "Reach the exit with exactly 12 points.",
+#     "Get to the exit in as few steps as possible.",
+#     "Collect as many ones as possible."
+# ]
+#
+# for command in test_commands:
+#
+#     print("Command:", command)
+#
+#     scores = calculate_scores(command)
+#
+#     for intent in scores:
+#         print(intent, ":", scores[intent])
+#
+#     print()
 
 
 # %% [markdown]
@@ -420,22 +420,22 @@ def detect_intent(text):
 
 
 # %%
-intent_tests = [
-    "Reach the exit with exactly 12 points.",
-    "Get to the exit in as few steps as possible.",
-    "Collect as many ones as possible.",
-    "Find the shortest path.",
-    "Reach a total of 20 points.",
-    "Collect as many as you can.",
-    "What is the weather today?",
-    "Reach exactly 12 points using the shortest path."
-]
-
-for command in intent_tests:
-
-    print("Command:", command)
-    print("Detected intent:", detect_intent(command))
-    print()
+# intent_tests = [
+#     "Reach the exit with exactly 12 points.",
+#     "Get to the exit in as few steps as possible.",
+#     "Collect as many ones as possible.",
+#     "Find the shortest path.",
+#     "Reach a total of 20 points.",
+#     "Collect as many as you can.",
+#     "What is the weather today?",
+#     "Reach exactly 12 points using the shortest path."
+# ]
+#
+# for command in intent_tests:
+#
+#     print("Command:", command)
+#     print("Detected intent:", detect_intent(command))
+#     print()
 
 
 # %% [markdown]
@@ -533,23 +533,23 @@ def extract_numbers(text):
 
 
 # %%
-parameter_tests = [
-    "Reach exactly 12 points.",
-    "Collect as many ones as possible.",
-    "Collect as many 7s as possible.",
-    "Reach exactly -5 points.",
-    "Reach exactly 2.5 points.",
-    "Collect as many as you can.",
-    "Collect as many twos or threes as possible.",
-    "Reach exactly 0 points.",
-    "Collect as many zeros as possible."
-]
-
-for command in parameter_tests:
-
-    print("Command:", command)
-    print("Extracted numbers:", extract_numbers(command))
-    print()
+# parameter_tests = [
+#     "Reach exactly 12 points.",
+#     "Collect as many ones as possible.",
+#     "Collect as many 7s as possible.",
+#     "Reach exactly -5 points.",
+#     "Reach exactly 2.5 points.",
+#     "Collect as many as you can.",
+#     "Collect as many twos or threes as possible.",
+#     "Reach exactly 0 points.",
+#     "Collect as many zeros as possible."
+# ]
+#
+# for command in parameter_tests:
+#
+#     print("Command:", command)
+#     print("Extracted numbers:", extract_numbers(command))
+#     print()
 
 
 # %% [markdown]
@@ -622,11 +622,11 @@ def validate_parameters(intent, text):
 
 
 # %%
-validate_parameters("exact_total", "Reach exactly 12 points.")
+# validate_parameters("exact_total", "Reach exactly 12 points.")
 
 
 # %%
-validate_parameters("most_copies", "Collect as many 15s as possible.")
+# validate_parameters("most_copies", "Collect as many 15s as possible.")
 
 
 # %% [markdown]
@@ -641,49 +641,49 @@ validate_parameters("most_copies", "Collect as many 15s as possible.")
 
 
 # %%
-validation_tests = [
-    ("exact_total", "Reach exactly 12 points."),
-    ("exact_total", "Reach exactly 0 points."),
-    ("exact_total", "Reach exactly -5 points."),
-    ("exact_total", "Reach exactly 2.5 points."),
-    ("exact_total", "Reach the exact total."),
-    ("fewest_steps", "Find the shortest path."),
-    ("most_copies", "Collect as many ones as possible."),
-    ("most_copies", "Collect as many zeros as possible."),
-    ("most_copies", "Collect as many 9s as possible."),
-    ("most_copies", "Collect as many 12s as possible."),
-    ("most_copies", "Collect as many as you can."),
-    ("most_copies", "Collect as many twos or threes as possible.")
-]
-
-for intent, command in validation_tests:
-
-    valid, value, message = validate_parameters(intent, command)
-
-    print("Command:", command)
-    print("Intent:", intent)
-    print("Valid:", valid)
-    print("Parameter:", value)
-    print("Message:", message)
-    print()
-
-
-# %%
-expected_results = [
-    True, True, False, False, False, True,
-    True, True, True, False, False, False
-]
-
-passed = 0
-
-for i, (intent, command) in enumerate(validation_tests):
-
-    valid, value, message = validate_parameters(intent, command)
-
-    if valid == expected_results[i]:
-        passed += 1
-
-print("Tests passed:", passed, "/", len(validation_tests))
+# validation_tests = [
+#     ("exact_total", "Reach exactly 12 points."),
+#     ("exact_total", "Reach exactly 0 points."),
+#     ("exact_total", "Reach exactly -5 points."),
+#     ("exact_total", "Reach exactly 2.5 points."),
+#     ("exact_total", "Reach the exact total."),
+#     ("fewest_steps", "Find the shortest path."),
+#     ("most_copies", "Collect as many ones as possible."),
+#     ("most_copies", "Collect as many zeros as possible."),
+#     ("most_copies", "Collect as many 9s as possible."),
+#     ("most_copies", "Collect as many 12s as possible."),
+#     ("most_copies", "Collect as many as you can."),
+#     ("most_copies", "Collect as many twos or threes as possible.")
+# ]
+#
+# for intent, command in validation_tests:
+#
+#     valid, value, message = validate_parameters(intent, command)
+#
+#     print("Command:", command)
+#     print("Intent:", intent)
+#     print("Valid:", valid)
+#     print("Parameter:", value)
+#     print("Message:", message)
+#     print()
+#
+#
+# # %%
+# expected_results = [
+#     True, True, False, False, False, True,
+#     True, True, True, False, False, False
+# ]
+#
+# passed = 0
+#
+# for i, (intent, command) in enumerate(validation_tests):
+#
+#     valid, value, message = validate_parameters(intent, command)
+#
+#     if valid == expected_results[i]:
+#         passed += 1
+#
+# print("Tests passed:", passed, "/", len(validation_tests))
 
 
 # %% [markdown]
@@ -761,23 +761,23 @@ def generate_goal(intent, value=None):
 
 
 # %%
-goal_tests = [
-    ("exact_total", 12),
-    ("fewest_steps", None),
-    ("most_copies", 1),
-    ("exact_total", 0),
-    ("most_copies", 9),
-    ("exact_total", -5),
-    ("most_copies", 15),
-    ("unknown", None)
-]
-
-for intent, value in goal_tests:
-
-    print("Intent:", intent)
-    print("Parameter:", value)
-    print("Structured goal:", generate_goal(intent, value))
-    print()
+# goal_tests = [
+#     ("exact_total", 12),
+#     ("fewest_steps", None),
+#     ("most_copies", 1),
+#     ("exact_total", 0),
+#     ("most_copies", 9),
+#     ("exact_total", -5),
+#     ("most_copies", 15),
+#     ("unknown", None)
+# ]
+#
+# for intent, value in goal_tests:
+#
+#     print("Intent:", intent)
+#     print("Parameter:", value)
+#     print("Structured goal:", generate_goal(intent, value))
+#     print()
 
 
 # %% [markdown]
@@ -923,52 +923,52 @@ def process_command(command):
 # %%
 # Test commands and their expected outputs
 
-complete_tests = [
-    (
-        "Reach exactly 12 points.",
-        {"intent": "exact_total", "target": 12}
-    ),
-    (
-        "Find the shortest path.",
-        {"intent": "fewest_steps"}
-    ),
-    (
-        "Collect as many ones as possible.",
-        {"intent": "most_copies", "digit": 1}
-    ),
-    (
-        "Reach a total of 20 points.",
-        {"intent": "exact_total", "target": 20}
-    ),
-    (
-        "Collect as many 7s as possible.",
-        {"intent": "most_copies", "digit": 7}
-    ),
-    ("Reach exactly -5 points.", None),
-    ("Reach exactly 2.5 points.", None),
-    ("Collect as many 15s as possible.", None),
-    ("Collect as many as you can.", None),
-    ("Reach the exact total.", None),
-    ("What is the weather today?", None),
-    ("Reach exactly 12 points using the shortest path.", None)
-]
-
-passed = 0
-
-for command, expected in complete_tests:
-
-    result = process_command(command)
-
-    if result == expected:
-        passed += 1
-        print("PASS:", command)
-    else:
-        print("FAIL:", command)
-        print("Expected:", expected)
-        print("Received:", result)
-
-print()
-print("Tests passed:", passed, "/", len(complete_tests))
+# complete_tests = [
+#     (
+#         "Reach exactly 12 points.",
+#         {"intent": "exact_total", "target": 12}
+#     ),
+#     (
+#         "Find the shortest path.",
+#         {"intent": "fewest_steps"}
+#     ),
+#     (
+#         "Collect as many ones as possible.",
+#         {"intent": "most_copies", "digit": 1}
+#     ),
+#     (
+#         "Reach a total of 20 points.",
+#         {"intent": "exact_total", "target": 20}
+#     ),
+#     (
+#         "Collect as many 7s as possible.",
+#         {"intent": "most_copies", "digit": 7}
+#     ),
+#     ("Reach exactly -5 points.", None),
+#     ("Reach exactly 2.5 points.", None),
+#     ("Collect as many 15s as possible.", None),
+#     ("Collect as many as you can.", None),
+#     ("Reach the exact total.", None),
+#     ("What is the weather today?", None),
+#     ("Reach exactly 12 points using the shortest path.", None)
+# ]
+#
+# passed = 0
+#
+# for command, expected in complete_tests:
+#
+#     result = process_command(command)
+#
+#     if result == expected:
+#         passed += 1
+#         print("PASS:", command)
+#     else:
+#         print("FAIL:", command)
+#         print("Expected:", expected)
+#         print("Received:", result)
+#
+# print()
+# print("Tests passed:", passed, "/", len(complete_tests))
 
 
 # %% [markdown]
@@ -991,9 +991,9 @@ print("Tests passed:", passed, "/", len(complete_tests))
 # %%
 # Test the interactive clarification dialogue
 
-goal = chatbot()
-
-print("Final structured goal:", goal)
+# goal = chatbot()
+#
+# print("Final structured goal:", goal)
 
 
 # %% [markdown]
@@ -1161,16 +1161,16 @@ else:
 
 
 # %%
-edge_tests = [
-    "Reach exactly 0 points.",
-    "Collect as many zeros as possible.",
-    "Collect as many nines as possible.",
-    "Collect as many twos or threes as possible.",
-    "Reach exactly 2.5 points.",
-    ""
-]
-
-for command in edge_tests:
-    print("Command:", command)
-    print("Result:", process_command(command))
-    print()
+# edge_tests = [
+#     "Reach exactly 0 points.",
+#     "Collect as many zeros as possible.",
+#     "Collect as many nines as possible.",
+#     "Collect as many twos or threes as possible.",
+#     "Reach exactly 2.5 points.",
+#     ""
+# ]
+#
+# for command in edge_tests:
+#     print("Command:", command)
+#     print("Result:", process_command(command))
+#     print()
